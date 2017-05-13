@@ -1,0 +1,1 @@
+var app = angular.module("TodoApp", []);	// make a new prototype from angular.min.js profile. array is for plugins

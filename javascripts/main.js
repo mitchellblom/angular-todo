@@ -1,4 +1,4 @@
-var app = angular.module("TodoApp", []);	// make a new prototype from angular.min.js profile. array is for plugins
+// var app = angular.module("TodoApp", []);	// make a new prototype from angular.min.js profile. array is for plugins
 											// name in quotes must be the same as the html. THE SAME!!!
 
 app.controller("NavCtrl", ($scope) => {			//quotes are name of controller, usually has ctrl in it in PaschalCase
@@ -9,26 +9,7 @@ app.controller("NavCtrl", ($scope) => {			//quotes are name of controller, usual
 app.controller("ItemCtrl", ($scope) => {
 	$scope.dog = "Woof!";
 	$scope.showListView = true;
-	$scope.items = [
-		 {
-          id: 0,
-          task: "mow the lawn",
-          isCompleted: true,
-          assignedTo: "Callan",
-        },
-        {
-          id: 1,
-          task: "grade quizzes",
-          isCompleted: false,
-          assignedTo: "Lauren",
-        },
-        {
-          id: 2,
-          task: "take a nap",
-          isCompleted: false,
-          assignedTo: "Zoe",
-        }
-	]
+	$scope.items = []
 
 	$scope.newItem = () => {
 		$scope.showListView = false;
