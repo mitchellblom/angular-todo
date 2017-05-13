@@ -1,34 +1,16 @@
-var app = angular.module("TodoApp", []);	// make a new prototype from angular.min.js profile. array is for plugins
-											// name in quotes must be the same as the html. THE SAME!!!
+app.run((FIREBASE_CONFIG) => {
+	firebase.initializeApp(FIREBASE_CONFIG); 
+});							// config runs once, run runs when any controller changes
 
 app.controller("NavCtrl", ($scope) => {			//quotes are name of controller, usually has ctrl in it in PaschalCase
 	$scope.cat = "Meow";						// angular variables to use go in parens
 	$scope.navItems = [{name: "Logout"}, {name: "All Items"}, {name: "New Item"}];
 });	
 
-app.controller("ItemCtrl", ($scope) => {
+app.controller("ItemCtrl", ($http, $q, $scope, FIREBASE_CONFIG) => {	// not mine first, then mine, both alphabetized
 	$scope.dog = "Woof!";
 	$scope.showListView = true;
-	$scope.items = [
-		 {
-          id: 0,
-          task: "mow the lawn",
-          isCompleted: true,
-          assignedTo: "Callan",
-        },
-        {
-          id: 1,
-          task: "grade quizzes",
-          isCompleted: false,
-          assignedTo: "Lauren",
-        },
-        {
-          id: 2,
-          task: "take a nap",
-          isCompleted: false,
-          assignedTo: "Zoe",
-        }
-	]
+	$scope.items = [];
 
 	$scope.newItem = () => {
 		$scope.showListView = false;
@@ -37,5 +19,59 @@ app.controller("ItemCtrl", ($scope) => {
 	$scope.allItems = () => {
 		$scope.showListView = true;
 	};
+
+	let getItemList = () => {
+		let itemz = [];
+		return $q((resolve, reject) => {
+			$http.get(`${FIREBASE_CONFIG.databaseURL}/items.json`)
+				.then((fbItems) => {
+					var itemCollection = fbItems.data;
+         			Object.keys(itemCollection).forEach((key) => {
+            		itemCollection[key].id=key;
+           			itemz.push(itemCollection[key]);
+          	});
+          	resolve(itemz);
+				})
+				.catch((error) => {
+					reject(error);
+				});
+		});
+	};
+
+	let getItems = () => {
+		getItemList().then((itemz) => {
+			$scope.items = itemz;
+		}).catch((error) => {
+			console.log("get Error", error);
+		});
+	};
+
+	getItems();
+
+	let postNewItem = (newItem) => {
+		return $q((resolve, reject) => {
+			$http.post(`${FIREBASE_CONFIG.databaseURL}/items.json`, JSON.stringify(newItem))	// where, what to post
+				.then((resultz) => {
+					resolve(resultz);
+				}).catch((error) => {
+					reject(error);
+				});
+		});
+	};
+
+	$scope.addNewItem = () => {
+		$scope.newTask.isCompleted = false;
+		console.log("clicked add");
+		postNewItem($scope.newTask).then(() => {
+			$scope.newTask = {};
+			$scope.showListView = true;
+			getItems();
+		}).catch((error) => {
+			console.log(error);
+		});
+	};
+
+
+
 
 });
