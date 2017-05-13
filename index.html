@@ -31,7 +31,7 @@
 		<div class="row">
 			<div class="col-xs-6 col-xs-offset-3">
 				<button class="col-xs-6 btn btn-info" ng-click="newItem()">New Item</button>
-				<button class="col-xs-6 btn btn-default" ng-click="allItems()">All Item</button>
+				<button class="col-xs-6 btn btn-default" ng-click="allItems()">All Items</button>
 			</div>
 		</div>
 		<div class="row">
@@ -39,6 +39,17 @@
 			<h1>NG Todo</h1>
 			<div ng-show="!showListView">
 				<h3>New Todo</h3>
+				 <form>
+	                <div class="form-group">
+	                    <label>Task Description</label>
+	                    <input type="text" class="form-control" placeholder="Some important task" ng-model="newTask.task" />
+	                </div>
+	                <div class="form-group">
+	                    <label>Assigned To</label>
+	                    <input type="text" class="form-control" placeholder="Zoe" ng-model="newTask.assignedTo"/>
+	                </div>
+	                <button class="btn btn-default" ng-click="addNewItem()">Submit</button>
+	            </form>
 			</div>
 			<div ng-show="showListView">
 				<input type="text" name="" placeholder="Search for ....." ng-model="searchText">
