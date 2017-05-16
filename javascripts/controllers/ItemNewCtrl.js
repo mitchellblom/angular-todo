@@ -1,11 +1,10 @@
-app.controller("ItemNewCtrl", function($http, $q, $scope, FIREBASE_CONFIG){
+app.controller("ItemNewCtrl", function($http, $location, $q, $scope, FIREBASE_CONFIG, ItemFactory){
 
 	$scope.addNewItem = () => {
 		$scope.newTask.isCompleted = false;
-		console.log("clicked add");
-		postNewItem($scope.newTask).then(() => {
+		ItemFactory.postNewItem($scope.newTask).then(() => {
 			$scope.newTask = {};
-			// switch views
+			$location.url("/items/list"); // only need #!/ beforehand if it's an anchor tag
 		}).catch((error) => {
 			console.log(error);
 		});
