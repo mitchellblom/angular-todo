@@ -1,5 +1,7 @@
 app.controller("ItemListCtrl", function($http, $q, $scope, FIREBASE_CONFIG) {
 
+	$scope.items = [];
+
     let getItemList = () => {
         let itemz = [];
         return $q((resolve, reject) => {
