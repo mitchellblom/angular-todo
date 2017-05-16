@@ -20,14 +20,25 @@
 	      <a class="navbar-brand" href="#">Angular Todo</a>
 	    </div>
 	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-	      <ul class="nav navbar-nav navbar-right" ng-repeat="thingy in navItems">	<!-- ng-repeat typically goes on or above one i'm wanting repeated -->
+	      <ul class="nav navbar-nav navbar-right" ng-repeat="thingy in navItems">	<!-- ng-repeat goes on or above one to re[eat -->
 		    <li><a href="#">{{thingy.name}}</a></li>
 	      </ul>
 	    </div>
 	  </div>
 	</nav>
 
-	<div ng-controller="ItemCtrl">
+<!-- <div ng-controller="ItemListCtrl"> -->
+
+	<div class="row">
+		<h1>NG Todo</h1>
+		<div class="col-xs-8 col-xs-offset-2" ng-view> <!-- ng view puts routes on this stated div -->
+		
+		</div>
+	</div>
+
+<!-- </div> -->
+
+<!-- 	<div ng-controller="ItemCtrl">
 		<div class="row">
 			<div class="col-xs-6 col-xs-offset-3">
 				<button class="col-xs-6 btn btn-info" ng-click="newItem()">New Item</button>
@@ -84,11 +95,12 @@
 		</div>
 		</div>
 	</div>
-
+ -->
 <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
 <script type="text/javascript" src="./lib/bower_components/jquery/dist/jquery.js"></script>
 <script type="text/javascript" src="./lib/bower_components/bootstrap/dist/js/bootstrap.js"></script>
 <script type="text/javascript" src="./lib/bower_components/angular/angular.min.js"></script>
+<script type="text/javascript" src="./lib/bower_components/angular-route/angular-route.min.js"></script>
 
 <script type="text/javascript" src="./javascripts/app.js"></script>
 <script type="text/javascript" src="./javascripts/AppConstants.js"></script>
