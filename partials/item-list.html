@@ -8,7 +8,7 @@
             </div>
             <div class="col-xs-7">{{item.task}}</div>
             <div class="col-xs-1 col-xs-offset-2">{{item.assignedTo}}</div>            
-            <div class="col-xs-1"><button class="btn btn-danger fa fa-trash-o"></button></div>
+            <div class="col-xs-1"><button class="btn btn-danger fa fa-trash-o" ng-click="deleteItem(item.id)"></button></div>
         </div>
     </div>
 </div>
@@ -22,7 +22,7 @@
             </div>
             <div class="col-xs-7">{{item.task}}</div>
             <div class="col-xs-1 col-xs-offset-2">{{item.assignedTo}}</div>            
-            <div class="col-xs-1"><button class="btn btn-danger fa fa-trash-o"></button></div>
+            <div class="col-xs-1"><button class="btn btn-danger fa fa-trash-o" ng-click="deleteItem(item.id)"></button></div>
         </div>
     </div>
 </div>
