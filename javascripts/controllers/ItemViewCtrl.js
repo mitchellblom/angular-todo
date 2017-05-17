@@ -1,3 +1,10 @@
-app.controller("ItemViewCtrl", function($http, $q, $scope, FIREBASE_CONFIG){
-    console.log("inside ItemViewCtrl");
+app.controller("ItemViewCtrl", function($routeParams, $scope, ItemFactory){		// $routeParams comes from ng-route
+    $scope.selectedItem = {};
+
+    ItemFactory.getSingleItem($routeParams.id).then((results) => {
+    	$scope.selectedItem = results.data;
+    }).catch((error) => {
+    	console.log("getSingleItem error", error);
+    });
+
 });

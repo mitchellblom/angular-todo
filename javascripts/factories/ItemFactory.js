@@ -19,6 +19,18 @@ app.factory("ItemFactory", function($http, $q, FIREBASE_CONFIG) {
     });
   };
 
+  let getSingleItem = (id) => {
+    return $q((resolve, reject) => {
+       $http.get(`${FIREBASE_CONFIG.databaseURL}/items/${id}.json`)
+        .then((results) => {
+          results.data.id = id;
+          resolve(results);
+        }).catch((error) => {
+          reject(error);
+        });
+    });
+  };
+
   let postNewItem = (newItem) => {
     return $q((resolve, reject) => {
       $http.post(`${FIREBASE_CONFIG.databaseURL}/items.json`, JSON.stringify(newItem)) // where, what to post
@@ -60,8 +72,9 @@ app.factory("ItemFactory", function($http, $q, FIREBASE_CONFIG) {
 
 
   return {
-      getItemList: getItemList,
-      postNewItem: postNewItem,
+      getItemList:getItemList,
+      getSingleItem:getSingleItem,
+      postNewItem:postNewItem,
       deletz:deletz, 
       editItem:editItem
   }; // now in factory objects callable by the given
