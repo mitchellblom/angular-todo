@@ -10,7 +10,7 @@ app.factory("ItemFactory", function($http, $q, FIREBASE_CONFIG) {
                 itemCollection[key].id = key;
                 itemz.push(itemCollection[key]);
             });
-          };
+          }
             resolve(itemz);
         })
         .catch((error) => {
@@ -41,11 +41,29 @@ app.factory("ItemFactory", function($http, $q, FIREBASE_CONFIG) {
     });
   };
 
+  let editItem = (item) => {                      // every new function in a factory must be returned at the bottom!!!!
+    return $q((resolve, reject) => {
+      $http.put(`${FIREBASE_CONFIG.databaseURL}/items/${item.id}.json`, 
+        JSON.stringify({
+          assignedTo: item.assignedTo,
+          isCompleted: item.isCompleted,
+          task: item.task
+        })                        // put takes url and then what putting
+    )
+      .then((resultz) => {
+              resolve(resultz);
+          }).catch((error) => {
+              reject(error);
+          });
+        });
+  };
+
 
   return {
       getItemList: getItemList,
       postNewItem: postNewItem,
-      deletz:deletz
+      deletz:deletz, 
+      editItem:editItem
   }; // now in factory objects callable by the given
 
 });

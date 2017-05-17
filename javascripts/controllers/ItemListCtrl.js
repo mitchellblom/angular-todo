@@ -13,11 +13,17 @@ app.controller("ItemListCtrl", function($scope, ItemFactory) {		// own code goes
 	getItems();
 
 	$scope.deleteItem = (id) => {
-		console.log("here i am");
 		ItemFactory.deletz(id).then(() => {
 			getItems();
 		}).catch((error) => {
 			console.log("deleteItem error", error);
 		});
 	};
+
+$scope.inputChange = (item) => {								// has to be in $scope because it's referenced on the partial
+	ItemFactory.editItem(item).catch((error) => {
+		console.log("inputchange error", error);
+	});
+};
+
 });
