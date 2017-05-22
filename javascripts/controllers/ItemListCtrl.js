@@ -20,10 +20,10 @@ app.controller("ItemListCtrl", function($scope, ItemFactory) {		// own code goes
 		});
 	};
 
-$scope.inputChange = (item) => {								// has to be in $scope because it's referenced on the partial
-	ItemFactory.editItem(item).catch((error) => {
-		console.log("inputchange error", error);
-	});
-};
+	$scope.inputChange = (item) => {								// has to be in $scope because it's referenced on the partial
+		ItemFactory.editItem(item).catch((error) => {
+			console.log("inputchange error", error);
+		});
+	};
 
 });
