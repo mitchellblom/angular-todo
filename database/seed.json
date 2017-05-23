@@ -1,19 +1,38 @@
 {
-    "items": {
-        "item0": {
-            "isCompleted": true,
-            "task": "mow the lawn",
-            "assignedTo": "Callan"
-        },
-        "item1": {
-            "isCompleted": false,
-            "task": "grade quizzes",
-            "assignedTo": "Lauren"
-        },
-        "item2": {
-            "isCompleted": false,
-            "task": "take a nap",
-            "assignedTo": "Zoe"
-        }
+  "items" : {
+    "item0" : {
+      "assignedTo" : "Callan",
+      "isCompleted" : true,
+      "task" : "mow the lawn",
+      "uid" : "VcPXzlDrHkdBtlxLk2dTtU8CZmY2"
+    },
+    "item1" : {
+      "assignedTo" : "Lauren",
+      "isCompleted" : true,
+      "task" : "grade all of zee quizzes",
+      "uid" : "mvl914FQA9NYVhyY9kPYNuM7NZw2"
+    },
+    "item2" : {
+      "assignedTo" : "Zoe",
+      "isCompleted" : false,
+      "task" : "take a nap",
+      "uid" : "mvl914FQA9NYVhyY9kPYNuM7NZw2"
+    },
+    "item3" : {
+      "assignedTo" : "Zoe",
+      "isCompleted" : false,
+      "task" : "watch hockey",
+      "uid" : "VcPXzlDrHkdBtlxLk2dTtU8CZmY2"
     }
+  },
+  "users" : {
+    "user0" : {
+      "uid" : "VcPXzlDrHkdBtlxLk2dTtU8CZmY2",
+      "username" : "a"
+    },
+    "user1" : {
+      "uid" : "mvl914FQA9NYVhyY9kPYNuM7NZw2",
+      "username" : "b"
+    }
+  }
 }
