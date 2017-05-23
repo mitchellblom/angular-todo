@@ -9,7 +9,7 @@ let isAuth = (AuthFactory) => new Promise ((resolve, reject) => {
 });
 
 app.run(function($location, $rootScope, FIREBASE_CONFIG, AuthFactory) {
-  firebase.initializeApp(FIREBASE_CONFIG);
+  firebase.initializeApp(FIREBASE_CONFIG);         // not using firebase, don't need this line, maybe need something else
 
   //watch method that fires on change of a route.  3 inputs. 
   //event is a change event
@@ -35,7 +35,7 @@ app.run(function($location, $rootScope, FIREBASE_CONFIG, AuthFactory) {
       $location.path('/auth');
     }
   });
-});																						// config runs once, run runs when any controller changes
+});
 
 app.config(function($routeProvider){
     $routeProvider

@@ -1,9 +1,9 @@
-app.controller("ItemListCtrl", function($scope, ItemFactory) {		// own code goes after $scope
+app.controller("ItemListCtrl", function($rootScope, $scope, ItemFactory) {		// own code goes after $scope
 	
 	$scope.items = [];
 
 	let getItems = () => {
-		ItemFactory.getItemList().then((itemz) => {		// now inside controller, will execute when controller loads
+		ItemFactory.getItemList($rootScope.user.uid).then((itemz) => {		// now inside controller, will execute when controller loads
 			$scope.items = itemz;
 		}).catch((error) => {
 			console.log("get Error", error);

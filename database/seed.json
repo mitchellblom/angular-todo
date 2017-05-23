@@ -2,18 +2,27 @@
   "items" : {
     "item0" : {
       "assignedTo" : "Callan",
-      "isCompleted" : false,
-      "task" : "mow the lawn"
+      "isCompleted" : true,
+      "task" : "mow the lawn",
+      "uid" : "VcPXzlDrHkdBtlxLk2dTtU8CZmY2"
     },
     "item1" : {
       "assignedTo" : "Lauren",
-      "isCompleted" : false,
-      "task" : "grade all of zee quizzes"
+      "isCompleted" : true,
+      "task" : "grade all of zee quizzes",
+      "uid" : "mvl914FQA9NYVhyY9kPYNuM7NZw2"
     },
     "item2" : {
       "assignedTo" : "Zoe",
-      "isCompleted" : true,
-      "task" : "take a nap"
+      "isCompleted" : false,
+      "task" : "take a nap",
+      "uid" : "mvl914FQA9NYVhyY9kPYNuM7NZw2"
+    },
+    "item3" : {
+      "assignedTo" : "Zoe",
+      "isCompleted" : false,
+      "task" : "watch hockey",
+      "uid" : "VcPXzlDrHkdBtlxLk2dTtU8CZmY2"
     }
   },
   "users" : {
