@@ -1,10 +1,24 @@
-app.controller("AuthCtrl", function($routeParams, $scope, AuthFactory, UserFactory) {
-	$scope.auth = {};
+app.controller("AuthCtrl", function($location, $rootScope, $scope, AuthFactory, UserFactory) {
+	$scope.auth = {
+		email: "a@a.com",
+		password: "123456",
+	};
+
+	let logMeIn = () => {
+		AuthFactory.authenticate($scope.auth).then((userCreds) => {
+			return UserFactory.getUser(userCreds.uid);
+		}, (error) => {
+			console.log("authenticate error", error);
+		}).then((user) => {
+			console.log("user", user);
+			$rootScope.user = user;
+			$location.url('/items/list');
+		}).catch((error) => {
+			console.log("getUser error", error);
+		});
+	};
 
 	$scope.registerUser = () => {
-		//new auth
-		//add username
-		//login
 		AuthFactory.registerWithEmail($scope.auth).then((didRegister) => {
 			console.log("didRegister", didRegister);
 			$scope.auth.uid = didRegister.uid;		//just added .uid to $scope.auth before passing it into UserFactory.addUser
@@ -12,14 +26,14 @@ app.controller("AuthCtrl", function($routeParams, $scope, AuthFactory, UserFacto
 		}, (error) => {						// alternate catch syntax
 			console.log("registerWithEmail error", error);
 		}).then((registerComplete) => {
-			console.log("registerComplete", registerComplete);
+			logMeIn();
 		}).catch(() => {
 			console.log("addUser error", error);
 		});
 	};
 
 	$scope.loginUser = () => {
-
+		logMeIn();
 	};
 
 });

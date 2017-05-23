@@ -20,7 +20,7 @@ app.factory("UserFactory", function($q, $http, FIREBASE_CONFIG) {
   let getUser = (userId) =>{
     return $q((resolve, reject) => {
       $http.get(`${FIREBASE_CONFIG.databaseURL}/users.json?orderBy="uid"&equalTo="${userId}"`)
-        .then((userObject) => {	// for security gets only user that matches id. one return for security
+        .then((userObject) => {	// for security gets only user that matches id. one return for
           let users = [];
           Object.keys(userObject.data).forEach((key) => {		// making an array out of user object returned json data
             users.push(userObject.data[key]);
