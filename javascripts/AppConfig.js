@@ -4,9 +4,13 @@ app.run(function(FIREBASE_CONFIG) {
 
 app.config(function($routeProvider){
     $routeProvider
+        .when('/auth', {
+            templateUrl: 'partials/auth.html',
+            controller: 'AuthCtrl'
+        })
         .when('/items/list', {
             templateUrl: 'partials/item-list.html',
-            controller: 'ItemListCtrl' // not a route
+            controller: 'ItemListCtrl'
         })
         .when('/items/new', {
             templateUrl: 'partials/item-new.html',
@@ -20,5 +24,5 @@ app.config(function($routeProvider){
             templateUrl: 'partials/item-new.html',
             controller: 'ItemEditCtrl'
         })
-        .otherwise('items/list');
+        .otherwise('auth');
 });

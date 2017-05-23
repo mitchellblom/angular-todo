@@ -1,4 +1,4 @@
-app.controller("ItemViewCtrl", function($routeParams, $scope, ItemFactory){		// $routeParams comes from ng-route
+app.controller("ItemViewCtrl", function($routeParams, $scope, ItemFactory) {		// $routeParams comes from ng-route
     $scope.selectedItem = {};
 
     ItemFactory.getSingleItem($routeParams.id).then((results) => {
