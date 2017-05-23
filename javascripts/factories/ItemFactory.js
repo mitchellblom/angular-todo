@@ -54,7 +54,6 @@ app.factory("ItemFactory", function($http, $q, FIREBASE_CONFIG) {
   };
 
   let editItem = (item) => {                      // every new function in a factory must be returned at the bottom!
-    console.log("item", item);
     return $q((resolve, reject) => {
       $http.put(`${FIREBASE_CONFIG.databaseURL}/items/${item.id}.json`, 
         JSON.stringify({
