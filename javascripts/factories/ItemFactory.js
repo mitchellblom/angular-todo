@@ -1,4 +1,5 @@
 app.factory("ItemFactory", function($http, $q, FIREBASE_CONFIG) {
+  
   let getItemList = (userId) => {
     let itemz = [];
     return $q((resolve, reject) => {
