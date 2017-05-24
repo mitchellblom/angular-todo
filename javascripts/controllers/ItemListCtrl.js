@@ -1,5 +1,5 @@
 app.controller("ItemListCtrl", function($rootScope, $scope, ItemFactory) {		// own code goes after $scope
-	
+
 	$scope.items = [];
 
 	let getItems = () => {
