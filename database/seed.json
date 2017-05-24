@@ -29,6 +29,24 @@
       "uid" : "VcPXzlDrHkdBtlxLk2dTtU8CZmY2"
     }
   },
+  "tools" : {
+    "tool0" : {
+      "itemId" : "item1",
+      "implement" : "shovel"
+    },
+    "tool1" : {
+      "itemId" : "item1",
+      "implement" : "shoes"
+    },
+    "tool2" : {
+      "itemId" : "item0",
+      "implement" : "goat"
+    },
+    "tool3" : {
+      "itemId" : "item2",
+      "implement" : "goat"
+    }
+  },
   "users" : {
     "user0" : {
       "uid" : "VcPXzlDrHkdBtlxLk2dTtU8CZmY2",
