@@ -2,24 +2,28 @@
   "items" : {
     "item0" : {
       "assignedTo" : "Callan",
+      "dueDate" : "2017-08-30T05:00:00.000Z",
       "isCompleted" : true,
       "task" : "mow the lawn",
       "uid" : "VcPXzlDrHkdBtlxLk2dTtU8CZmY2"
     },
     "item1" : {
       "assignedTo" : "Lauren",
+      "dueDate" : "2017-07-30T05:00:00.000Z",
       "isCompleted" : true,
       "task" : "grade all of zee quizzes",
       "uid" : "mvl914FQA9NYVhyY9kPYNuM7NZw2"
     },
     "item2" : {
       "assignedTo" : "Zoe",
+      "dueDate" : "2017-09-30T05:00:00.000Z",
       "isCompleted" : false,
       "task" : "take a nap",
       "uid" : "mvl914FQA9NYVhyY9kPYNuM7NZw2"
     },
     "item3" : {
       "assignedTo" : "Zoe",
+      "dueDate" : "2017-06-30T05:00:00.000Z",
       "isCompleted" : false,
       "task" : "watch hockey",
       "uid" : "VcPXzlDrHkdBtlxLk2dTtU8CZmY2"
