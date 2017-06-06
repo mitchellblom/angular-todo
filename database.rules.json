@@ -1,0 +1,15 @@
+{
+  "rules": {
+    ".read": "true",
+    ".write": "true",
+    "items": {
+      ".indexOn": "uid"
+    },
+    "users": {
+      ".indexOn": "uid"
+    },
+    "tools": {
+      ".indexOn": "itemId"
+    }
+  }
+}
